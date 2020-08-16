@@ -1,3 +1,3 @@
 # Sample Hello World Using FastAPI
 
-Sample Hello World app using FastAPI
+Sample Hello World app using FastAPI!
