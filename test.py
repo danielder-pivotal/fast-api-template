@@ -1,6 +1,6 @@
 import unittest
 
-from app import read_root 
+from app.main import read_root
 
 class TestApp(unittest.TestCase):
 
