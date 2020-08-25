@@ -1,12 +1,22 @@
 import unittest
+from app import main
+from fastapi.testclient import TestClient
 
-from app.main import read_root
-
-class TestApp(unittest.TestCase):
+class UnitTest(unittest.TestCase):
 
     def test_string_return(self):
-        result = read_root()
-        self.assertEqual(result, '<h1>Hello, World!</h1>')
+        result = main.read_root()
+        self.assertEqual(result, "I'm alive")
 
-if __name__ == "__main__":
-    unittest.main()
+class IntegrationTest(unittest.TestCase):
+
+    def setUp(self):
+        self.client = TestClient(main.app)
+
+    def test_alive(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_version(self):
+        response = self.client.get("/db")
+        self.assertEqual(response.text, '"PostgreSQL 11.7"')
