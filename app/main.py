@@ -4,13 +4,13 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 #Get creds from the environment or pull defaults
-DB_USER = os.environ.get('DB_USER', 'postgres')
-DB_PASSWORD = os.environ.get('DB_PASSWORD', 'password')
-DB_URI = os.environ.get('DB_URI', 'localhost')
-DB_NAME = os.environ.get('DB_NAME', 'postgres')
+POSTGRES_USER = os.environ.get('POSTGRES_USER', 'postgres')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'password')
+POSTGRES_URI = os.environ.get('POSTGRES_URI', 'localhost')
+POSTGRES_DB = os.environ.get('POSTGRES_DB', 'postgres')
 
 #Build the connection string
-DATABASE_URL = f"postgres://{DB_USER}:{DB_PASSWORD}@{DB_URI}/{DB_NAME}"
+DATABASE_URL = f"postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{DB_URI}/{POSTGRES_DB}"
 engine = create_engine(DATABASE_URL)
 
 app = FastAPI()
