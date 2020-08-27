@@ -10,7 +10,7 @@ POSTGRES_URI = os.environ.get('POSTGRES_URI', 'localhost')
 POSTGRES_DB = os.environ.get('POSTGRES_DB', 'postgres')
 
 #Build the connection string
-DATABASE_URL = f"postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{DB_URI}/{POSTGRES_DB}"
+DATABASE_URL = f"postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_URI}/{POSTGRES_DB}"
 engine = create_engine(DATABASE_URL)
 
 app = FastAPI()
