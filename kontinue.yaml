@@ -1,0 +1,7 @@
+unittest:
+  command: |-
+    python -m unittest test.UnitTest
+
+integrationtest:
+  command: |-
+    python -m unittest test.IntegrationTest
